@@ -28,35 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnClearAdd = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnClearAdd
             // 
-            this.button1.Location = new System.Drawing.Point(13, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(259, 50);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Clear and Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnClearAdd.Location = new System.Drawing.Point(13, 13);
+            this.btnClearAdd.Name = "btnClearAdd";
+            this.btnClearAdd.Size = new System.Drawing.Size(259, 50);
+            this.btnClearAdd.TabIndex = 0;
+            this.btnClearAdd.Text = "Clear and Add";
+            this.btnClearAdd.UseVisualStyleBackColor = true;
+            this.btnClearAdd.Click += new System.EventHandler(this.btnClearAdd_Click);
             // 
-            // button2
+            // btnAdd
             // 
-            this.button2.Location = new System.Drawing.Point(13, 69);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(259, 50);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Append";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAdd.Location = new System.Drawing.Point(13, 69);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(259, 50);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // DragAndDropForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(285, 132);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnClearAdd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "DragAndDropForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -67,7 +69,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnClearAdd;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

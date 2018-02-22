@@ -25,6 +25,8 @@
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowNamer));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBrowseTarget = new System.Windows.Forms.Button();
+            this.btnBrowseSource = new System.Windows.Forms.Button();
             this.txtTargetPath = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSourcePath = new System.Windows.Forms.TextBox();
@@ -43,40 +45,39 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtShowName = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.nudSeason = new System.Windows.Forms.NumericUpDown();
-            this.nudEpisodes = new System.Windows.Forms.NumericUpDown();
-            this.btnRefreshList = new System.Windows.Forms.Button();
-            this.txtFormat = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.ComboSortBy = new System.Windows.Forms.ComboBox();
-            this.BtnRenameFiles = new System.Windows.Forms.Button();
-            this.CbIncEp = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnBrowseTarget = new System.Windows.Forms.Button();
-            this.btnBrowseSource = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
+            this.CbIncEp = new System.Windows.Forms.CheckBox();
+            this.BtnRenameFiles = new System.Windows.Forms.Button();
+            this.ComboSortBy = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtFormat = new System.Windows.Forms.TextBox();
+            this.btnRefreshList = new System.Windows.Forms.Button();
+            this.nudEpisodes = new System.Windows.Forms.NumericUpDown();
+            this.nudSeason = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtShowName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbClearGrid = new System.Windows.Forms.ToolStripButton();
             this.tbsOpenNewFolder = new System.Windows.Forms.ToolStripButton();
             this.tbsAddFromFolder = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbEnableDragDrop = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbRemoveSelected = new System.Windows.Forms.ToolStripButton();
             this.tsbSkipSelected = new System.Windows.Forms.ToolStripButton();
+            this.CbMoveOnRename = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSeason)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEpisodes)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEpisodes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSeason)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -90,10 +91,30 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(297, 158);
+            this.groupBox1.Size = new System.Drawing.Size(298, 158);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Folders";
+            // 
+            // btnBrowseTarget
+            // 
+            this.btnBrowseTarget.Image = global::ShowNamer.Properties.Resources.folder_search;
+            this.btnBrowseTarget.Location = new System.Drawing.Point(260, 84);
+            this.btnBrowseTarget.Name = "btnBrowseTarget";
+            this.btnBrowseTarget.Size = new System.Drawing.Size(35, 23);
+            this.btnBrowseTarget.TabIndex = 2;
+            this.btnBrowseTarget.UseVisualStyleBackColor = true;
+            this.btnBrowseTarget.Click += new System.EventHandler(this.btnBrowseTarget_Click);
+            // 
+            // btnBrowseSource
+            // 
+            this.btnBrowseSource.Image = global::ShowNamer.Properties.Resources.folder_search;
+            this.btnBrowseSource.Location = new System.Drawing.Point(260, 41);
+            this.btnBrowseSource.Name = "btnBrowseSource";
+            this.btnBrowseSource.Size = new System.Drawing.Size(35, 23);
+            this.btnBrowseSource.TabIndex = 2;
+            this.btnBrowseSource.UseVisualStyleBackColor = true;
+            this.btnBrowseSource.Click += new System.EventHandler(this.BtnBrowseSource_Click);
             // 
             // txtTargetPath
             // 
@@ -237,136 +258,60 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1194, 164);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // toolStrip1
+            // groupBox2
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbClearGrid,
-            this.tbsOpenNewFolder,
-            this.tbsAddFromFolder,
-            this.toolStripSeparator1,
-            this.tsbEnableDragDrop,
-            this.toolStripSeparator2,
-            this.tsbRemoveSelected,
-            this.tsbSkipSelected});
-            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1200, 25);
-            this.toolStrip1.TabIndex = 5;
-            this.toolStrip1.Text = "toolStrip1";
+            this.groupBox2.Controls.Add(this.CbMoveOnRename);
+            this.groupBox2.Controls.Add(this.btnInfo);
+            this.groupBox2.Controls.Add(this.CbIncEp);
+            this.groupBox2.Controls.Add(this.BtnRenameFiles);
+            this.groupBox2.Controls.Add(this.ComboSortBy);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.txtFormat);
+            this.groupBox2.Controls.Add(this.btnRefreshList);
+            this.groupBox2.Controls.Add(this.nudEpisodes);
+            this.groupBox2.Controls.Add(this.nudSeason);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.txtShowName);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(307, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(884, 158);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Show Info";
             // 
-            // toolStripSeparator1
+            // btnInfo
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.btnInfo.Image = global::ShowNamer.Properties.Resources.information;
+            this.btnInfo.Location = new System.Drawing.Point(259, 80);
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.Size = new System.Drawing.Size(28, 23);
+            this.btnInfo.TabIndex = 10;
+            this.btnInfo.UseVisualStyleBackColor = true;
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
             // 
-            // toolStripSeparator2
+            // CbIncEp
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.CbIncEp.AutoSize = true;
+            this.CbIncEp.Location = new System.Drawing.Point(512, 39);
+            this.CbIncEp.Name = "CbIncEp";
+            this.CbIncEp.Size = new System.Drawing.Size(107, 17);
+            this.CbIncEp.TabIndex = 9;
+            this.CbIncEp.Text = "Increase episode";
+            this.CbIncEp.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // BtnRenameFiles
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Show name";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 66);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "File name format";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(257, 20);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Season";
-            // 
-            // txtShowName
-            // 
-            this.txtShowName.Location = new System.Drawing.Point(6, 37);
-            this.txtShowName.Name = "txtShowName";
-            this.txtShowName.Size = new System.Drawing.Size(248, 20);
-            this.txtShowName.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(383, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Episode Start";
-            // 
-            // nudSeason
-            // 
-            this.nudSeason.Location = new System.Drawing.Point(260, 37);
-            this.nudSeason.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudSeason.Name = "nudSeason";
-            this.nudSeason.Size = new System.Drawing.Size(120, 20);
-            this.nudSeason.TabIndex = 2;
-            this.nudSeason.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // nudEpisodes
-            // 
-            this.nudEpisodes.Location = new System.Drawing.Point(386, 37);
-            this.nudEpisodes.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudEpisodes.Name = "nudEpisodes";
-            this.nudEpisodes.Size = new System.Drawing.Size(120, 20);
-            this.nudEpisodes.TabIndex = 2;
-            this.nudEpisodes.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // btnRefreshList
-            // 
-            this.btnRefreshList.Location = new System.Drawing.Point(6, 127);
-            this.btnRefreshList.Name = "btnRefreshList";
-            this.btnRefreshList.Size = new System.Drawing.Size(75, 23);
-            this.btnRefreshList.TabIndex = 4;
-            this.btnRefreshList.Text = "Refresh";
-            this.btnRefreshList.UseVisualStyleBackColor = true;
-            this.btnRefreshList.Click += new System.EventHandler(this.BtnRefreshList_Click);
-            // 
-            // txtFormat
-            // 
-            this.txtFormat.Location = new System.Drawing.Point(6, 82);
-            this.txtFormat.Name = "txtFormat";
-            this.txtFormat.Size = new System.Drawing.Size(248, 20);
-            this.txtFormat.TabIndex = 5;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(301, 65);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(60, 13);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "Sort List By";
+            this.BtnRenameFiles.Location = new System.Drawing.Point(87, 127);
+            this.BtnRenameFiles.Name = "BtnRenameFiles";
+            this.BtnRenameFiles.Size = new System.Drawing.Size(75, 23);
+            this.BtnRenameFiles.TabIndex = 8;
+            this.BtnRenameFiles.Text = "Rename";
+            this.BtnRenameFiles.UseVisualStyleBackColor = true;
+            this.BtnRenameFiles.Click += new System.EventHandler(this.BtnRenameFiles_Click);
             // 
             // ComboSortBy
             // 
@@ -385,78 +330,126 @@
             this.ComboSortBy.TabIndex = 7;
             this.ComboSortBy.SelectedIndexChanged += new System.EventHandler(this.ComboSortBy_SelectedIndexChanged);
             // 
-            // BtnRenameFiles
+            // label10
             // 
-            this.BtnRenameFiles.Location = new System.Drawing.Point(87, 127);
-            this.BtnRenameFiles.Name = "BtnRenameFiles";
-            this.BtnRenameFiles.Size = new System.Drawing.Size(75, 23);
-            this.BtnRenameFiles.TabIndex = 8;
-            this.BtnRenameFiles.Text = "Rename";
-            this.BtnRenameFiles.UseVisualStyleBackColor = true;
-            this.BtnRenameFiles.Click += new System.EventHandler(this.BtnRenameFiles_Click);
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(301, 65);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(60, 13);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Sort List By";
             // 
-            // CbIncEp
+            // txtFormat
             // 
-            this.CbIncEp.AutoSize = true;
-            this.CbIncEp.Location = new System.Drawing.Point(512, 39);
-            this.CbIncEp.Name = "CbIncEp";
-            this.CbIncEp.Size = new System.Drawing.Size(107, 17);
-            this.CbIncEp.TabIndex = 9;
-            this.CbIncEp.Text = "Increase episode";
-            this.CbIncEp.UseVisualStyleBackColor = true;
+            this.txtFormat.Location = new System.Drawing.Point(6, 82);
+            this.txtFormat.Name = "txtFormat";
+            this.txtFormat.Size = new System.Drawing.Size(248, 20);
+            this.txtFormat.TabIndex = 5;
             // 
-            // groupBox2
+            // btnRefreshList
             // 
-            this.groupBox2.Controls.Add(this.btnInfo);
-            this.groupBox2.Controls.Add(this.CbIncEp);
-            this.groupBox2.Controls.Add(this.BtnRenameFiles);
-            this.groupBox2.Controls.Add(this.ComboSortBy);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.txtFormat);
-            this.groupBox2.Controls.Add(this.btnRefreshList);
-            this.groupBox2.Controls.Add(this.nudEpisodes);
-            this.groupBox2.Controls.Add(this.nudSeason);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.txtShowName);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(306, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(885, 158);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Show Info";
+            this.btnRefreshList.Location = new System.Drawing.Point(6, 127);
+            this.btnRefreshList.Name = "btnRefreshList";
+            this.btnRefreshList.Size = new System.Drawing.Size(75, 23);
+            this.btnRefreshList.TabIndex = 4;
+            this.btnRefreshList.Text = "Refresh";
+            this.btnRefreshList.UseVisualStyleBackColor = true;
+            this.btnRefreshList.Click += new System.EventHandler(this.BtnRefreshList_Click);
             // 
-            // btnBrowseTarget
+            // nudEpisodes
             // 
-            this.btnBrowseTarget.Image = global::ShowNamer.Properties.Resources.folder_search;
-            this.btnBrowseTarget.Location = new System.Drawing.Point(260, 84);
-            this.btnBrowseTarget.Name = "btnBrowseTarget";
-            this.btnBrowseTarget.Size = new System.Drawing.Size(35, 23);
-            this.btnBrowseTarget.TabIndex = 2;
-            this.btnBrowseTarget.UseVisualStyleBackColor = true;
+            this.nudEpisodes.Location = new System.Drawing.Point(386, 37);
+            this.nudEpisodes.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudEpisodes.Name = "nudEpisodes";
+            this.nudEpisodes.Size = new System.Drawing.Size(120, 20);
+            this.nudEpisodes.TabIndex = 2;
+            this.nudEpisodes.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // btnBrowseSource
+            // nudSeason
             // 
-            this.btnBrowseSource.Image = global::ShowNamer.Properties.Resources.folder_search;
-            this.btnBrowseSource.Location = new System.Drawing.Point(260, 41);
-            this.btnBrowseSource.Name = "btnBrowseSource";
-            this.btnBrowseSource.Size = new System.Drawing.Size(35, 23);
-            this.btnBrowseSource.TabIndex = 2;
-            this.btnBrowseSource.UseVisualStyleBackColor = true;
-            this.btnBrowseSource.Click += new System.EventHandler(this.BtnBrowseSource_Click);
+            this.nudSeason.Location = new System.Drawing.Point(260, 37);
+            this.nudSeason.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudSeason.Name = "nudSeason";
+            this.nudSeason.Size = new System.Drawing.Size(120, 20);
+            this.nudSeason.TabIndex = 2;
+            this.nudSeason.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // btnInfo
+            // label5
             // 
-            this.btnInfo.Image = global::ShowNamer.Properties.Resources.information;
-            this.btnInfo.Location = new System.Drawing.Point(259, 80);
-            this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(28, 23);
-            this.btnInfo.TabIndex = 10;
-            this.btnInfo.UseVisualStyleBackColor = true;
-            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(383, 21);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(70, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Episode Start";
+            // 
+            // txtShowName
+            // 
+            this.txtShowName.Location = new System.Drawing.Point(6, 37);
+            this.txtShowName.Name = "txtShowName";
+            this.txtShowName.Size = new System.Drawing.Size(248, 20);
+            this.txtShowName.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(257, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Season";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 66);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(84, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "File name format";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Show name";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbClearGrid,
+            this.tbsOpenNewFolder,
+            this.tbsAddFromFolder,
+            this.toolStripSeparator1,
+            this.tsbEnableDragDrop,
+            this.toolStripSeparator2,
+            this.tsbRemoveSelected,
+            this.tsbSkipSelected});
+            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1200, 25);
+            this.toolStrip1.TabIndex = 5;
+            this.toolStrip1.Text = "toolStrip1";
             // 
             // tsbClearGrid
             // 
@@ -486,6 +479,11 @@
             this.tbsAddFromFolder.Text = "Add From Folder";
             this.tbsAddFromFolder.Click += new System.EventHandler(this.tbsAddFromFolder_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // tsbEnableDragDrop
             // 
             this.tsbEnableDragDrop.CheckOnClick = true;
@@ -495,6 +493,11 @@
             this.tsbEnableDragDrop.Size = new System.Drawing.Size(132, 22);
             this.tsbEnableDragDrop.Text = "Enable Drag && Drop";
             this.tsbEnableDragDrop.CheckedChanged += new System.EventHandler(this.tsbEnableDragDrop_CheckedChanged);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // tsbRemoveSelected
             // 
@@ -514,6 +517,16 @@
             this.tsbSkipSelected.Text = "Skip Selected";
             this.tsbSkipSelected.Click += new System.EventHandler(this.tsbSkipSelected_Click);
             // 
+            // CbMoveOnRename
+            // 
+            this.CbMoveOnRename.AutoSize = true;
+            this.CbMoveOnRename.Location = new System.Drawing.Point(512, 84);
+            this.CbMoveOnRename.Name = "CbMoveOnRename";
+            this.CbMoveOnRename.Size = new System.Drawing.Size(106, 17);
+            this.CbMoveOnRename.TabIndex = 11;
+            this.CbMoveOnRename.Text = "Move on rename";
+            this.CbMoveOnRename.UseVisualStyleBackColor = true;
+            // 
             // ShowNamer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -530,12 +543,12 @@
             this.groupBox3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSeason)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEpisodes)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEpisodes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSeason)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -588,6 +601,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox CbMoveOnRename;
     }
 }
 
